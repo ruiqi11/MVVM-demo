@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>private-vue</title>
+  <style>
+    body {
+      position: relative;
+    }
+    
+    #app {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      text-align: center;
+    }
+    
+    input {
+      height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{title}}</h1>
+    <button v-on:click="clickMe">v-on:click</v-on></button>
+    <br>
+    <h2>v-model：{{name}}</h2>
+    <input v-model="name">
+  </div>
+  <script src="../dist/bundle.js"></script>
+</body>
+<script type="text/javascript">
+  new MVVM({
+    el: '#app',
+    data: {
+      title: 'hello world',
+      name: 'a'
+    },
+    methods: {
+      clickMe: function() {
+        this.title = 'Welcome';
+      }
+    }
+  });
+</script>
+
+</html>
